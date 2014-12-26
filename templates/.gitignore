@@ -1,0 +1,12 @@
+.gradle
+/build
+*/build
+gradle.properties
+gradle-app.setting
+
+*/bin
+*.project
+*.classpath
+*.settings
+*.factorypath
+*.generated

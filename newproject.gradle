@@ -1,0 +1,28 @@
+def root = file("templates").getAbsolutePath()
+
+allprojects {
+	def copyTo = { src, dest ->
+		def p = rootProject.file(dest)
+		p.parentFile.mkdirs()
+		p.text = file("${root}/${src}").text
+	}
+	
+	def cp = { copyTo(it, it) }
+	
+	task settings << {
+		def jdt_ui = 'org.eclipse.jdt.ui.prefs'
+		copyTo(jdt_ui, ".settings/${jdt_ui}")
+	}
+	
+	task init(dependsOn: ["wrapper", "settings"]) << {
+		["main", "test"].each {
+			rootProject.file("src/${it}/java").mkdirs()
+			rootProject.file("src/${it}/resources").mkdirs()
+		}
+		file("gradle.properties").text = ""
+		cp(".gitignore")
+		cp("build.gradle")
+		cp("LICENSE")
+		cp("README.md")
+	}
+}
