@@ -14,8 +14,8 @@ test {
 }
 
 dependencies {
-	testCompile 'junit:junit:4.+'
 	testCompile 'org.jmockit:jmockit:1.+'
+	testCompile 'junit:junit:4.+'
 }
 
 apply plugin: 'eclipse'
