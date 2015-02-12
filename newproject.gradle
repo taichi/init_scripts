@@ -1,6 +1,9 @@
 def root = file("templates").getAbsolutePath()
 
 allprojects {
+	if(parent != null) {
+		return
+	}
 	def copyTo = { src, dest ->
 		def p = rootProject.file(dest)
 		p.parentFile.mkdirs()
