@@ -1,4 +1,7 @@
-apply plugin: 'java'
+plugins {
+	id 'java'
+	id 'eclipse'
+}
 
 repositories {
 	jcenter()
@@ -10,15 +13,13 @@ sourceCompatibility = targetCompatibility = 1.8
 tasks.withType(AbstractCompile)*.options*.encoding = "UTF-8"
 
 test {
-	systemProperty("java.awt.headless", "true")
+	systemProperty('java.awt.headless', true)
 }
 
 dependencies {
 	testCompile 'org.jmockit:jmockit:1.+'
 	testCompile 'junit:junit:4.+'
 }
-
-apply plugin: 'eclipse'
 
 eclipse {
 	classpath {
