@@ -4,6 +4,9 @@ plugins {
 }
 
 repositories {
+	maven {
+		url "https://maven-central.storage.googleapis.com"
+	}
 	jcenter()
 	mavenCentral()
 }
@@ -17,7 +20,7 @@ test {
 }
 
 dependencies {
-	testCompile 'org.jmockit:jmockit:1.+'
+	testCompile 'org.mockito:mockito-core:1.+'
 	testCompile 'junit:junit:4.+'
 }
 
